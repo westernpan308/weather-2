@@ -1,14 +1,14 @@
 def main(city):
     import json, requests
     
-    base_url = "http://api.openweathermap.org/data/2.5/weather"
+    base_URL = "http://api.openweathermap.org/data/2.5/weather"
     appid = "d4463de4cefb6d542ee2810c3b787989"
     
-    url = f"{base_url}?q={city}&units=imperial&appid={appid}"
-    #print(url)
+    URL = f"{base_URL}?q={city}&units=imperial&appid={appid}"
+    #print(URL)
     #print()  
 #lines 14-15 are the call to and response from the URL     
-    response = requests.get(url)
+    response = requests.get(URL)
     unformated_data = response.json ()
 #lines 17-31 is the data requested from the URL, has if else built into for ERROR so it will loop around   
     if response.status_code == 200:
@@ -40,5 +40,5 @@ while True:
       print("Thank you and have a great day please return for more weather updates")
       break
     else:
-      print("Error invalid entry please check spelling or ZIP code ")
+      print("Error invalid entry please check spelling or ZIP code\n ")
       continue
