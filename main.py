@@ -10,7 +10,7 @@ def main(city):
 #lines 14-15 are the call to and response from the URL     
     response = requests.get(url)
     unformated_data = response.json ()
-#lines 17-31 is the data that was requested from the URL, has if else built into for ERROR so it will loop around   
+#lines 17-31 is the data requested from the URL, has if else built into for ERROR so it will loop around   
     if response.status_code == 200:
       print()
     else:
