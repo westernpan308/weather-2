@@ -28,18 +28,17 @@ def main():
   print(f"The forecast high is: {temp_max}")
   temp_min = unformated_data["main"]["temp_min"]
   print(f"The forecast low is: {temp_min}\n")
-  while True:
-    print("Would you like to check the weather for another city?\n Y for yes\n N for no")
-    option = input("y/n > ")
-    print()
-        
-    if option == "y" or option == "Y":
-      main()
-    elif option == "n" or option == "N":
-      print("Thank you and have a great day please return for more weather updates")
-      break
-    else:
-      print("Error invalid entry please check spelling or ZIP code ")
-      continue
-  return
 main()
+while True:
+  print("Would you like to check the weather for another city?\n Y for yes\n N for no")
+  option = input("y/n > ")
+  print()
+      
+  if option == "y" or option == "Y":
+    main()
+  elif option == "n" or option == "N":
+    print("Thank you and have a great day please return for more weather updates")
+    break
+  else:
+    print("Error invalid entry please check spelling or ZIP code ")
+    continue
