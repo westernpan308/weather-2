@@ -14,8 +14,9 @@ def main():
   unformated_data = response.json ()
   
   if response.status_code == 200:
-    print()
+    print("Success!")
   else:
+    print("not found")
     print(f"Error Please check Spelling or Zip Code")
     main()
   
