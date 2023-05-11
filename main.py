@@ -3,8 +3,13 @@ def main():
     
 #lines 3-10 are call to the URL web-service    
   base_url = "http://api.openweathermap.org/data/2.5/weather"
+  
   appid = "d4463de4cefb6d542ee2810c3b787989"
+  
   city = input("\nWhat city would you like to check the weather for?\n please enter a city or zip code.")
+  
+  #location = "http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={appid}"
+  
     
   url = f"{base_url}?q={city}&units=imperial&appid={appid}"
   #print(url)
@@ -14,23 +19,33 @@ def main():
   unformated_data = response.json ()
   
   if response.status_code == 200:
-    print("Success!")
+    print("Successful Connection!")
   else:
-    print("not found")
+    print("Error not found")
     print(f"Error Please check Spelling or Zip Code")
     main()
+
   
-    #print(unformated_data)
+  #print(unformated_data)
   name = unformated_data["name"]
   print(f"For the city of: {name}")
+  lon = unformated_data["coord"]["lon"]
+  print(f"The longitude location is: {lon}")
+  lat = unformated_data["coord"]["lat"]
+  print(f"The latitude location is: {lat}")
+  
   temp = unformated_data["main"]["temp"]
-  print(f"The current temperature is: {temp}")
+  print(f"\nThe current temperature is: {temp}") 
   temp_max = unformated_data["main"]["temp_max"]
   print(f"The forecast high is: {temp_max}")
   temp_min = unformated_data["main"]["temp_min"]
   print(f"The forecast low is: {temp_min}\n")
+  weather = unformated_data["weather"][0]["description"]
+  print(f"Todays forecast: {weather}")
+  
+  
   while True:
-    print("Would you like to check the weather for another city?\n Y for yes\n N for no")
+    print("\nWould you like to check the weather for another city?\n Y for yes\n N for no")
     option = input("y/n > ")
     print()
         
