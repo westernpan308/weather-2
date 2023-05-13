@@ -63,13 +63,20 @@ while True:
   print()
       
   if option == "y" or option == "Y":
-    main()
-    
+    city = input("\nWhat city would you like to check the weather for?\n please enter a city or zip code.")
+    url = f"{base_url}?q={city}&units=imperial&appid={appid}"
+    response = requests.get(url)
+    unformated_data = response.json ()
+    if response.status_code == 200:
+      print("Successful Connection!")
+    else:
+      print("Error not found")
+      print("Error Please check Spelling or Zip Code")
   elif option == "n" or option == "N":
     print("Thank you and have a great day please return for more weather updates")
     break
   else:
     print("Error invalid entry please check spelling or ZIP code ")
     continue
-    #saving
+
 main()
